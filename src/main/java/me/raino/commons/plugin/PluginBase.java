@@ -74,7 +74,7 @@ public abstract class PluginBase extends JavaPlugin {
     
     @Override
     public void saveDefaultConfig() {
-        
+        this.mainConfig = new Config(this);
     }
 
     private void registerCommands() {

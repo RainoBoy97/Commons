@@ -55,7 +55,7 @@ public class Message {
         return this;
     }
     
-    public int lenght() {
+    public int length() {
         int length = 0;
         for (StringBuilder line : this.lines)
             length += line.length();

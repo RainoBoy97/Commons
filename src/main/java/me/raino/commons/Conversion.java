@@ -2,6 +2,8 @@ package me.raino.commons;
 
 import java.util.List;
 
+import me.raino.commons.utility.StringUtility;
+
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;

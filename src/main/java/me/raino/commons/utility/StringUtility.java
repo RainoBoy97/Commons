@@ -20,11 +20,26 @@ public class StringUtility {
         return ensureLength(string, length, false);
     }
 
-    public static <T> String join(String separator, Collection<T> items) {
+    public static String join(String separator, List<?> items) {
         StringBuilder sb = new StringBuilder();
-        for (T item : items)
+        for (Object item : items)
             sb.append(separator).append(item);
         return sb.substring(separator.length());
+    }
+
+    public static String toEnglish(Object prefix, Object suffix, List<?> items) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0, size = items.size(); i < size; i++) {
+            String item = items.get(i).toString();
+            if (i != 0)
+                sb.append(i == size - 1 ? " and " : ", ");
+            sb.append(prefix.toString()).append(item).append(suffix.toString());
+        }
+        return sb.toString();
+    }
+    
+    public static String toEnglish(List<?> items) {
+        return StringUtility.toEnglish("", "", items);
     }
 
     public static List<String> split(String text, String regex) {

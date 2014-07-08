@@ -20,7 +20,7 @@ public class StringUtility {
         return ensureLength(string, length, false);
     }
 
-    public static String join(String separator, List<?> items) {
+    public static String join(String separator, Collection<?> items) {
         StringBuilder sb = new StringBuilder();
         for (Object item : items)
             sb.append(separator).append(item);

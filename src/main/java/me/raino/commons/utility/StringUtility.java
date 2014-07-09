@@ -23,7 +23,8 @@ public class StringUtility {
     public static String join(String separator, Collection<?> items) {
         StringBuilder sb = new StringBuilder();
         for (Object item : items)
-            sb.append(separator).append(item);
+            if (item != null)
+                sb.append(separator).append(item);
         return sb.substring(separator.length());
     }
 
@@ -31,15 +32,21 @@ public class StringUtility {
         StringBuilder sb = new StringBuilder();
         for (int i = 0, size = items.size(); i < size; i++) {
             String item = items.get(i).toString();
+            if (item == null)
+                continue;
             if (i != 0)
                 sb.append(i == size - 1 ? " and " : ", ");
-            sb.append(prefix.toString()).append(item).append(suffix.toString());
+            if (prefix != null)
+                sb.append(prefix);
+            sb.append(item);
+            if (suffix != null)
+                sb.append(suffix);
         }
         return sb.toString();
     }
-    
+
     public static String toEnglish(List<?> items) {
-        return StringUtility.toEnglish("", "", items);
+        return StringUtility.toEnglish(null, null, items);
     }
 
     public static List<String> split(String text, String regex) {

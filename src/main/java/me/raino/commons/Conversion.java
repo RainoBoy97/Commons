@@ -14,6 +14,8 @@ import com.google.common.collect.Lists;
 public class Conversion {
 
     public static String toString(Object object) {
+        if (object == null)
+            return null;
         return object.toString();
     }
 

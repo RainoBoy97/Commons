@@ -52,11 +52,11 @@ public abstract class PluginBase extends JavaPlugin {
         PluginBase.instance = null;
     }
 
-    private void register(Class<?> commandClass) {
+    protected void register(Class<?> commandClass) {
         this.commandRegistration.register(commandClass);
     }
 
-    private void register(Listener listener) {
+    protected void register(Listener listener) {
         this.getServer().getPluginManager().registerEvents(listener, this);
     }
 

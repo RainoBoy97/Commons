@@ -46,8 +46,8 @@ public abstract class PluginBase extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        PluginBase.instance = null;
         this.disable();
+        PluginBase.instance = null;
     }
 
     private void register(Class<?> commandClass) {

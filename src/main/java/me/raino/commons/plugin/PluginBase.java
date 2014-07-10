@@ -2,6 +2,7 @@ package me.raino.commons.plugin;
 
 import me.raino.commons.Config;
 import me.raino.commons.Log;
+import me.raino.commons.Scheduler;
 
 import org.apache.commons.lang.Validate;
 import org.bukkit.ChatColor;
@@ -37,6 +38,7 @@ public abstract class PluginBase extends JavaPlugin {
     @Override
     public void onEnable() {
         PluginBase.instance = this;
+        Scheduler.init(this);
         Log.init(this);
         if (this.config)
             this.saveDefaultConfig();

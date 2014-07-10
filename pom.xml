@@ -18,12 +18,12 @@
 			<version>0.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.1</version>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
 		</dependency>
 	</dependencies>
-	
+
 	<repositories>
 		<repository>
 			<id>bukkit-repo</id>
@@ -34,7 +34,7 @@
 			<url>http://repo.oc.tc/content/repositories/releases/</url>
 		</repository>
 	</repositories>
-	
+
 	<build>
 		<defaultGoal>clean package</defaultGoal>
 		<resources>
@@ -84,5 +84,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>

@@ -4,7 +4,6 @@ import me.raino.commons.Config;
 import me.raino.commons.Log;
 import me.raino.commons.Scheduler;
 
-import org.apache.commons.lang.Validate;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -30,8 +29,9 @@ public abstract class PluginBase extends JavaPlugin {
     private Config mainConfig;
 
     public PluginBase() {
-        PluginInfo info = this.getClass().getAnnotation(PluginInfo.class);
-        Validate.notNull(info, "PluginBase must have PluginInfo annotation!");
+        PluginInfo info = getClass().getAnnotation(PluginInfo.class);
+        if (info == null)
+            return;
         this.config = info.config();
     }
 
@@ -73,7 +73,7 @@ public abstract class PluginBase extends JavaPlugin {
             return;
         this.mainConfig.reload();
     }
-    
+
     @Override
     public void saveDefaultConfig() {
         this.mainConfig = new Config(this);

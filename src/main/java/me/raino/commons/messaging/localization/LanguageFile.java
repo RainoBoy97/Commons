@@ -14,7 +14,7 @@ public class LanguageFile {
     private Config config;
 
     public LanguageFile(Plugin plugin, File file) {
-        this.name = StringUtility.split(file.getName(), ".").get(0);
+        this.name = StringUtility.split(file.getName(), "\\.").get(0);
         this.config = new Config(plugin, file);
     }
 

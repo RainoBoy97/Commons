@@ -37,7 +37,7 @@ public class I18n {
         FilenameFilter filter = new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                return StringUtility.split(name, ".").get(1).equalsIgnoreCase("lang");
+                return StringUtility.split(name, "\\.").get(1).equalsIgnoreCase("lang");
             }
         };
         for (File file : I18n.directory.listFiles(filter)) {
@@ -66,11 +66,11 @@ public class I18n {
         LanguageFile languageFile = I18n.languages.get(I18n.DEFAULT_LOCALE);
         return languageFile != null ? languageFile : null;
     }
-    
+
     public static LanguageFile getLanguageFile(CommandSender sender) {
         return I18n.getLanguageFile(I18n.getLanguage(sender));
     }
-    
+
     public static String get(CommandSender sender, String key, Object... arguments) {
         LanguageFile languageFile = I18n.getLanguageFile(sender);
         String message = languageFile.get(key, arguments);

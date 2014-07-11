@@ -74,6 +74,7 @@ public enum Language {
 
     Language(String language, String locale) {
         this.locale = locale;
+        this.language = language;
     }
 
     public String getLanguage() {
@@ -90,7 +91,7 @@ public enum Language {
                 return l;
         return null;
     }
-    
+
     public static Language fromLanguage(String language) {
         for (Language l : Language.values())
             if (l.getLanguage().equalsIgnoreCase(language))

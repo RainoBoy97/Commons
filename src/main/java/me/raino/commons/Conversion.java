@@ -16,6 +16,8 @@ public class Conversion {
     public static String toString(Object object) {
         if (object == null)
             return null;
+        if (object instanceof String)
+            return (String) object;
         return object.toString();
     }
 

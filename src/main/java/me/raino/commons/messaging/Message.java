@@ -2,6 +2,7 @@ package me.raino.commons.messaging;
 
 import java.util.List;
 
+import me.raino.commons.Conversion;
 import me.raino.commons.Txt;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -33,14 +34,14 @@ public class Message {
 
     public Message append(Object... arguments) {
         if (arguments != null && arguments.length > 0) {
-            String message = arguments[0].toString();
+            String message = Conversion.toString(arguments[0]);
             this.currentLine.append(Txt.parse(message, ArrayUtils.remove(arguments, 0)));
         }
         return this;
     }
 
     public Message append(ChatColor color, Object... arguments) {
-        this.currentLine.append(color.toString());
+        this.currentLine.append(Conversion.toString(color));
         return this.append(arguments);
     }
 

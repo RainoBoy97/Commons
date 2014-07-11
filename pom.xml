@@ -6,6 +6,10 @@
 	<version>1.0.0</version>
 	<name>Commons</name>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.bukkit</groupId>

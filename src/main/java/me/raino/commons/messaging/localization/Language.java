@@ -2,88 +2,100 @@ package me.raino.commons.messaging.localization;
 
 public enum Language {
 
-    AFRIKAANS("af_ZA"),
-    AMERICAN_ENGLISH("en_US"),
-    ARABIC("ar_SA"),
-    ARGENTINIAN_ENGLISH("es_AR"),
-    ARMENIAN("hy_AM"),
-    AUSTRALIAN_ENGLISH("en_AU"),
-    BASQUE("eu_ES"),
-    BRAZILIAN_PORTUGUESE("pt_BR"),
-    BRITISH_ENGLISH("en_GB"),
-    BULGARIAN("bg_BG"),
-    CANADIAN_ENGLISH("en_CA"),
-    CANADIAN_FRENCH("fr_CA"),
-    CATALAN("ca_ES"),
-    CHINESE_SIMPLIFIED("zh_CH"),
-    CHINESE_TRADITIONAL("zh_TW"),
-    CORNWALL("kw_GB"),
-    CROATIAN("hr_HR"),
-    CZECH("cs_CZ"),
-    DANISH("da_DK"),
-    DUTCH("nl_NL"),
-    ESPERANTO("eo_UY"),
-    ESTONIAN("et_EE"),
-    FINNISH("fi_FI"),
-    FRENCH("fr_FR"),
-    GALICIAN("gl_ES"),
-    GEORGIAN("ka_GE"),
-    GERMAN("da_DE"),
-    GREEK("el_GR"),
-    HEBREW("hr_HR"),
-    HINDI("hi_IN"),
-    HUNGARIAN("hu_HU"),
-    ICELANDIC("is_IS"),
-    INDONESIAN("id_ID"),
-    IRISH("ga_IE"),
-    ITALIAN("it_IT"),
-    JAPANESE("ja_JP"),
-    KLINGON("tlh_AA"),
-    KOREAN("ko_KR"),
-    LATIN("la_VA"),
-    LATVIAN("lv_LV"),
-    LITHUANIAN("lt_LT"),
-    LUXEMGOURGISH("lb_LU"),
-    MALAY("lv_LV"),
-    MALTESE("mt_MT"),
-    MEXICAN_SPANISH("es_MX"),
-    NORWEGIAN_BOKMAL("no_NO"),
-    NORWEGIAN_NYNORSK("nb_NO"),
-    OCCITAN("cc_CT"),
-    PIRATE_ENGLISH("en_PT"),
-    POLISH("cc_CT"),
-    PORTUGUESE("pt_PT"),
-    QUENYA("qya_AA"),
-    ROMANIAN("ro_RO"),
-    RUSSIAN("ru_RU"),
-    SERBIAN("sr_RS"),
-    SLOVAK("sk_SK"),
-    SLOVENIAN("sl_SL"),
-    SPANISH("es_ES"),
-    SWEDISH("sv_SE"),
-    THAI("th_TH"),
-    TURKISH("tr_TR"),
-    UKRAINIAN("uk_UA"),
-    URUGUAYAN_SPANISH("es_UY"),
-    VENEZUELAN_SPANISH("es_VE"),
-    VIETNAMESE("vi_VN"),
-    WELSH("cy_GB");
-    
+    AFRIKAANS("Afrikaans", "af_ZA"),
+    AMERICAN_ENGLISH("English (US)", "en_US"),
+    ARABIC("اللغة العربية", "ar_SA"),
+    ARGENTINIAN_ENGLISH("Español (Ar)", "es_AR"),
+    ARMENIAN("Հայերեն", "hy_AM"),
+    AUSTRALIAN_ENGLISH("Australian English", "en_AU"),
+    BASQUE("Euskara", "eu_ES"),
+    BRAZILIAN_PORTUGUESE("Português (Br)", "pt_BR"),
+    BRITISH_ENGLISH("English (UK)", "en_GB"),
+    BULGARIAN("Български", "bg_BG"),
+    CANADIAN_ENGLISH("Canadian English", "en_CA"),
+    CANADIAN_FRENCH("Français (Ca)", "fr_CA"),
+    CATALAN("Català", "ca_ES"),
+    CHINESE_SIMPLIFIED("简体中文", "zh_CH"),
+    CHINESE_TRADITIONAL("繁體中文", "zh_TW"),
+    CORNWALL("Kernowek", "kw_GB"),
+    CROATIAN("Hrvatski", "hr_HR"),
+    CZECH("Čeština", "cs_CZ"),
+    DANISH("Dansk", "da_DK"),
+    DUTCH("Nederlands", "nl_NL"),
+    ESPERANTO("Esperanto (Mondo)", "eo_UY"),
+    ESTONIAN("Eesti", "et_EE"),
+    FINNISH("Suomi", "fi_FI"),
+    FRENCH("Français (Fr)", "fr_FR"),
+    GALICIAN("Galego", "gl_ES"),
+    GEORGIAN("ქართული", "ka_GE"),
+    GERMAN("Deutsch", "da_DE"),
+    GREEK("Ελληνικά", "el_GR"),
+    HEBREW("עברית", "hr_HR"),
+    HINDI("हिन्दी", "hi_IN"),
+    HUNGARIAN("Magyar", "hu_HU"),
+    ICELANDIC("Íslenska", "is_IS"),
+    INDONESIAN("Bahasa Indonesia", "id_ID"),
+    IRISH("Gaeilge", "ga_IE"),
+    ITALIAN("Italiano", "it_IT"),
+    JAPANESE("日本語", "ja_JP"),
+    KLINGON("tlhIngan Hol", "tlh_AA"),
+    KOREAN("한국어", "ko_KR"),
+    LATIN("Lingua Latina", "la_VA"),
+    LATVIAN("Latviešu", "lv_LV"),
+    LITHUANIAN("Lietuvių", "lt_LT"),
+    LUXEMGOURGISH("Lëtzebuergesch", "lb_LU"),
+    MALAY("Bahasa Melayu", "lv_LV"),
+    MALTESE("Malti", "mt_MT"),
+    MEXICAN_SPANISH("Español (Me)", "es_MX"),
+    NORWEGIAN_BOKMAL("Norsk", "no_NO"),
+    NORWEGIAN_NYNORSK("Norsk Nynorsk", "nb_NO"),
+    OCCITAN("Occitan", "cc_CT"),
+    PIRATE_ENGLISH("Pirate Speak ", "en_PT"),
+    POLISH("Polski", "cc_CT"),
+    PORTUGUESE("Portuguese (Po)", "pt_PT"),
+    QUENYA("Quenya", "qya_AA"),
+    ROMANIAN("Română", "ro_RO"),
+    RUSSIAN("Русский", "ru_RU"),
+    SERBIAN("Српски", "sr_RS"),
+    SLOVAK("Slovenčina", "sk_SK"),
+    SLOVENIAN("Slovenščina", "sl_SL"),
+    SPANISH("Español (Es)", "es_ES"),
+    SWEDISH("Svenska", "sv_SE"),
+    THAI("ภาษาไทย", "th_TH"),
+    TURKISH("Türkçe", "tr_TR"),
+    UKRAINIAN("Українська", "uk_UA"),
+    URUGUAYAN_SPANISH("Español (Ur)", "es_UY"),
+    VENEZUELAN_SPANISH("Español (Ve)", "es_VE"),
+    VIETNAMESE("Tiếng Việt", "vi_VN"),
+    WELSH("Cymraeg", "cy_GB");
+
+    private String language;
     private String locale;
-    
-    Language(String locale) {
+
+    Language(String language, String locale) {
         this.locale = locale;
     }
-    
+
+    public String getLanguage() {
+        return this.language;
+    }
+
     public String getLocale() {
         return this.locale;
     }
-    
+
     public static Language fromLocale(String locale) {
-        for (Language language : Language.values())
-            if (language.getLocale().equalsIgnoreCase(locale))
-                return language;
+        for (Language l : Language.values())
+            if (l.getLocale().equalsIgnoreCase(locale))
+                return l;
         return null;
     }
     
+    public static Language fromLanguage(String language) {
+        for (Language l : Language.values())
+            if (l.getLanguage().equalsIgnoreCase(language))
+                return l;
+        return null;
+    }
+
 }

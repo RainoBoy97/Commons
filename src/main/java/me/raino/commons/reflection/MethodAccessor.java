@@ -8,7 +8,7 @@ public interface MethodAccessor<T> {
 
     public boolean isValid();
     
-    public T invoke(Object instance, Object... arguments);
+    public T invoke(Object... arguments);
     
     public String getName();
     

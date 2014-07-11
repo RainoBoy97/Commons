@@ -8,9 +8,11 @@ import java.lang.reflect.Field;
  */
 public class SafeField<T> implements FieldAccessor<T> {
 
+    private Object from;
     private Field field;
 
-    public SafeField(Field field) {
+    public SafeField(Object from, Field field) {
+        this.from = from;
         if (!field.isAccessible())
             field.setAccessible(true);
         this.field = field;
@@ -23,11 +25,11 @@ public class SafeField<T> implements FieldAccessor<T> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public T get(Object object) {
+    public T get() {
         if (!this.isValid())
             return null;
         try {
-            return (T) this.field.get(object);
+            return (T) this.field.get(this.from);
         } catch (Exception e) {
             return null;
         }
@@ -55,9 +57,9 @@ public class SafeField<T> implements FieldAccessor<T> {
         return this.field.getType();
     }
 
-    public static <F> SafeField<F> of(Class<?> clazz, String field) {
-        Field f = SafeField.findField(clazz, field);
-        return f != null ? new SafeField<F>(f) : null;
+    public static <T> SafeField<T> of(Object from, String field) {
+        Field f = SafeField.findField(from.getClass(), field);
+        return f != null ? new SafeField<T>(from, f) : null;
     }
 
     private static Field findField(Class<?> clazz, String field) {

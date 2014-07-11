@@ -8,9 +8,11 @@ import java.lang.reflect.Method;
  */
 public class SafeMethod<T> implements MethodAccessor<T> {
 
+    private Object from;
     private Method method;
 
-    public SafeMethod(Method method) {
+    public SafeMethod(Object from, Method method) {
+        this.from = from;
         if (!method.isAccessible())
             method.setAccessible(true);
         this.method = method;
@@ -22,11 +24,11 @@ public class SafeMethod<T> implements MethodAccessor<T> {
     }
     
     @SuppressWarnings("unchecked")
-    public T invoke(Object object, Object... arguments) {
+    public T invoke(Object... arguments) {
         if (!this.isValid())
             return null;
         try {
-            return (T) this.method.invoke(object, arguments);
+            return (T) this.method.invoke(this.from, arguments);
         } catch (Exception e) {
             return null;
         }
@@ -42,9 +44,9 @@ public class SafeMethod<T> implements MethodAccessor<T> {
         return this.method.getReturnType();
     }
     
-    public static <M> SafeMethod<M> of(Class<?> clazz, String method, Class<?>... arguments) {
-        Method m = SafeMethod.findMethod(clazz, method, arguments);
-        return m != null ? new SafeMethod<M>(m) : null;
+    public static <M> SafeMethod<M> of(Object from, String method, Class<?>... arguments) {
+        Method m = SafeMethod.findMethod(from.getClass(), method, arguments);
+        return m != null ? new SafeMethod<M>(from, m) : null;
     }
     
     private static Method findMethod(Class<?> clazz, String method, Class<?>... arguments) {

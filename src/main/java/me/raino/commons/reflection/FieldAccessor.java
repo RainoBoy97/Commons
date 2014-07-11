@@ -8,7 +8,7 @@ public interface FieldAccessor<T> {
 
     public boolean isValid();
     
-    public T get(Object object);
+    public T get();
     
     public boolean set(Object object, T value);
     

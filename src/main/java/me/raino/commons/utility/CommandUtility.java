@@ -1,7 +1,10 @@
 package me.raino.commons.utility;
 
 import me.raino.commons.Validate;
+import me.raino.commons.reflection.SafeField;
 
+import org.bukkit.Bukkit;
+import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -22,6 +25,11 @@ public class CommandUtility {
         Validate.notNull(permission, "permission");
         if (!sender.hasPermission(permission))
             throw new CommandPermissionsException();
+    }
+
+    public static CommandMap getCommandMap() {
+        SafeField<CommandMap> commandMap = SafeField.of(Bukkit.getServer().getPluginManager(), "commandMap");
+        return commandMap.get();
     }
 
     private CommandUtility() {}

@@ -66,8 +66,8 @@ public class SafeMethod<T> implements MethodAccessor<T> {
     }
 
     @Override
-    public Class<?> getReturnType() {
-        return this.method.getReturnType();
+    public Class<T> getReturnType() {
+        return (Class<T>) this.method.getReturnType();
     }
 
     public static <M> SafeMethod<M> of(Class<?> clazz, String method, Class<?>... parameters) {

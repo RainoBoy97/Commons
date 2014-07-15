@@ -18,6 +18,6 @@ public interface MethodAccessor<T> {
 
     public String getName();
 
-    public Class<?> getReturnType();
+    public Class<T> getReturnType();
 
 }

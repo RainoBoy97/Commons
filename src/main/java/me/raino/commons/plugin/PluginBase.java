@@ -3,6 +3,7 @@ package me.raino.commons.plugin;
 import me.raino.commons.Config;
 import me.raino.commons.Log;
 import me.raino.commons.Scheduler;
+import me.raino.commons.messaging.localization.I18n;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -28,11 +29,15 @@ public abstract class PluginBase extends JavaPlugin {
     private boolean config;
     private Config mainConfig;
 
+    private boolean localization;
+
     public PluginBase() {
-        PluginInfo info = getClass().getAnnotation(PluginInfo.class);
+        PluginInfo info = this.getClass().getAnnotation(PluginInfo.class);
         if (info == null)
             return;
+        // Validate.notNull(info, "PluginBase must have PluginInfo annotation");
         this.config = info.config();
+        this.localization = info.localization();
     }
 
     @Override
@@ -42,6 +47,12 @@ public abstract class PluginBase extends JavaPlugin {
         Log.init(this);
         if (this.config)
             this.saveDefaultConfig();
+        if (this.localization) {
+            if (!I18n.init(this)) {
+                Log.warning("Default locale not found ({0})! Disabling...", I18n.DEFAULT_LOCALE.getLocale());
+                this.setEnabled(false);
+            }
+        }
         this.registerCommands();
         this.enable();
     }
@@ -62,20 +73,22 @@ public abstract class PluginBase extends JavaPlugin {
 
     @Override
     public Config getConfig() {
-        if (!config)
+        if (!this.config)
             return null;
         return this.mainConfig;
     }
 
     @Override
     public void reloadConfig() {
-        if (!config)
+        if (!this.config)
             return;
         this.mainConfig.reload();
     }
 
     @Override
     public void saveDefaultConfig() {
+        if (!this.config)
+            return;
         this.mainConfig = new Config(this);
     }
 

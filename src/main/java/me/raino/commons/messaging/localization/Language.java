@@ -86,14 +86,14 @@ public enum Language {
     }
 
     public static Language fromLocale(String locale) {
-        for (Language l : Language.values())
+        for (Language l : values())
             if (l.getLocale().equalsIgnoreCase(locale))
                 return l;
         return null;
     }
 
     public static Language fromLanguage(String language) {
-        for (Language l : Language.values())
+        for (Language l : values())
             if (l.getLanguage().equalsIgnoreCase(language))
                 return l;
         return null;

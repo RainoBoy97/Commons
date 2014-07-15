@@ -4,6 +4,6 @@ public @interface PluginInfo {
 
     public boolean config() default false;
 
-    public boolean debug() default false;
+    public boolean localization() default false;
     
 }

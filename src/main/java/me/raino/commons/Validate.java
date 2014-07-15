@@ -52,10 +52,6 @@ public final class Validate {
         return collection;
     }
 
-    public static boolean notEmptySilent(Collection<?> collection) {
-        return collection != null && !collection.isEmpty();
-    }
-
     private Validate() {}
 
 }

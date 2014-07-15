@@ -35,12 +35,16 @@ public abstract class Scheduler implements Runnable {
         this.task = scheduler.runTaskTimerAsynchronously(plugin, this, delay, period);
     }
 
+    public int getTaskId() {
+        return this.task.getTaskId();
+    }
+
     public boolean isRunning() {
-        return scheduler.isCurrentlyRunning(this.task.getTaskId());
+        return scheduler.isCurrentlyRunning(this.getTaskId());
     }
 
     public void cancel() {
-        scheduler.cancelTask(this.task.getTaskId());
+        scheduler.cancelTask(this.getTaskId());
     }
 
     public static void init(Plugin plugin) {

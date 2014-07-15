@@ -30,13 +30,13 @@ public class Conversion {
     }
 
     public static Integer parseInteger(String text) {
-        return Conversion.parseInteger(text, null);
+        return parseInteger(text, null);
     }
 
     public static List<Integer> parseIntegerList(String text) {
         List<Integer> result = Lists.newArrayList();
         for (String part : StringUtility.split(text, ","))
-            result.add(Conversion.parseInteger(part));
+            result.add(parseInteger(part));
         return result;
     }
 
@@ -49,13 +49,13 @@ public class Conversion {
     }
 
     public static Double parseDouble(String text) {
-        return Conversion.parseDouble(text, null);
+        return parseDouble(text, null);
     }
 
     public static List<Double> parseDoubleList(String text) {
         List<Double> result = Lists.newArrayList();
         for (String part : StringUtility.split(text, ","))
-            result.add(Conversion.parseDouble(part));
+            result.add(parseDouble(part));
         return result;
     }
 
@@ -68,13 +68,13 @@ public class Conversion {
     }
 
     public static Long parseLong(String text) {
-        return Conversion.parseLong(text, null);
+        return parseLong(text, null);
     }
 
     public static List<Long> parseLongList(String text) {
         List<Long> result = Lists.newArrayList();
         for (String part : StringUtility.split(text, ","))
-            result.add(Conversion.parseLong(part));
+            result.add(parseLong(part));
         return result;
     }
 
@@ -87,13 +87,13 @@ public class Conversion {
     }
 
     public static Short parseShort(String text) {
-        return Conversion.parseShort(text, null);
+        return parseShort(text, null);
     }
 
     public static List<Short> parseShortList(String text) {
         List<Short> result = Lists.newArrayList();
         for (String part : StringUtility.split(text, ","))
-            result.add(Conversion.parseShort(part));
+            result.add(parseShort(part));
         return result;
     }
 
@@ -106,13 +106,13 @@ public class Conversion {
     }
 
     public static Byte parseByte(String text) {
-        return Conversion.parseByte(text, null);
+        return parseByte(text, null);
     }
 
     public static List<Byte> parseByteList(String text) {
         List<Byte> result = Lists.newArrayList();
         for (String part : StringUtility.split(text, ","))
-            result.add(Conversion.parseByte(part));
+            result.add(parseByte(part));
         return result;
     }
 
@@ -121,15 +121,15 @@ public class Conversion {
     }
 
     public static ChatColor parseChatColor(String text, ChatColor def) {
-        return Conversion.parseEnumValue(ChatColor.class, text, def);
+        return parseEnumValue(ChatColor.class, text, def);
     }
 
     public static ChatColor parseChatColor(String text) {
-        return Conversion.parseChatColor(text, null);
+        return parseChatColor(text, null);
     }
 
     public static DyeColor parseDyeColor(String text) {
-        return Conversion.parseEnumValue(DyeColor.class, text);
+        return parseEnumValue(DyeColor.class, text);
     }
 
     public static Enchantment parseEnchantment(String text) {
@@ -145,7 +145,7 @@ public class Conversion {
     }
 
     public static <T extends Enum<T>> T parseEnumValue(Class<T> type, String text) {
-        return Conversion.parseEnumValue(type, text, null);
+        return parseEnumValue(type, text, null);
     }
 
     private Conversion() {}

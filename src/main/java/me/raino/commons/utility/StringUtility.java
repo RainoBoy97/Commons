@@ -46,7 +46,7 @@ public class StringUtility {
     }
 
     public static String toEnglish(List<?> items) {
-        return StringUtility.toEnglish(null, null, items);
+        return toEnglish(null, null, items);
     }
 
     public static List<String> split(String text, String regex) {
@@ -72,7 +72,7 @@ public class StringUtility {
     }
 
     public static <T> T match(String query, T[] items, StringProvider<T> provider) {
-        return StringUtility.match(query, Arrays.asList(items), provider);
+        return match(query, Arrays.asList(items), provider);
     }
 
     public static abstract class StringProvider<V> {

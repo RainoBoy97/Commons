@@ -116,6 +116,20 @@ public class Conversion {
         return result;
     }
 
+    public static Boolean parseBoolean(String text) {
+        switch (text.toLowerCase()) {
+        case "true":
+        case "on":
+        case "yes":
+            return true;
+        case "false":
+        case "off":
+        case "no":
+        default:
+            return false;
+        }
+    }
+
     public static Material parseMaterial(String text) {
         return Material.matchMaterial(text);
     }
